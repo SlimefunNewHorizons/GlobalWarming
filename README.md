@@ -59,7 +59,21 @@ tenía las comillas escapadas y la concatenación muerta. Ahora usa marcadores d
 solo al arrancar. Era además el único uso que hacía de GuizhanLib, así que desapareció también esa
 dependencia.
 
+**Criar animales ahora contamina.** `PollutionListener.onAnimalBreed` restaba contaminación al criar,
+aunque el valor `pollution.production.animal-breed` es de *producción*: criar era la forma más barata de
+limpiar un mundo. Ahora suma, como el resto de fuentes. Lo reportó y corrigió
+[@happyc0der](https://github.com/happyc0der) en el PR #1. El mismo error existe en el original.
+
 **Todo en español**, incluidos los mensajes de consola.
+
+## Qué ensucia y qué limpia
+
+Todo se ajusta en `config.yml`, sección `pollution`:
+
+- **Ensucian** (`production`): meter materiales de carbono, petróleo o uranio en una máquina,
+  los combustibles y criar animales.
+- **Limpian** (`absorption`): el Sumidero de Carbono, por ciclo completado, y los árboles al crecer.
+  Los valores son pequeños a propósito: limpiar un mundo muy sucio es un proyecto de horas.
 
 ## Nota sobre Terralith
 
@@ -77,6 +91,17 @@ tocar la configuración, no cambia nada del juego más allá de poder medir.
 El trabajo de fondo es de **poma123**. Licencia **MIT**, conservada sin modificar. Los detalles
 están en [UPSTREAM.md](UPSTREAM.md).
 
+## Compilar
+
+Java 21 y Maven: `mvn -B package`. El jar queda en `target/`. Se compila contra `paper-api` 1.21.11.
+
+## Contribuir
+
+Los PR son bienvenidos. Cada PR externo lo revisan los agentes de IA de SAORI línea a línea
+(red, ejecución de comandos, dependencias, cambios en `.github/` o en el build, permisos) y solo se
+fusiona si compila, pasa los tests y no hay nada raro; lo dudoso lo decide un humano. Un PR pequeño,
+con el problema explicado y cómo lo probaste, se revisa mucho más rápido.
+
 ---
 
 ## 📄 License & Upstream Attribution
@@ -85,4 +110,4 @@ This project is a sovereign fork maintained by [**JackStar6677-1**](https://gith
 
 - **Original Project:** Created by the upstream authors and the open-source community.
 - **DrakesCraft Optimizations:** Modernized for Paper/Purpur 1.21.11+, Java 21, high concurrency, asynchronous safety, and exploit/duplication prevention.
-- **License:** Distributed under the original **GNU General Public License v3.0 (GPLv3)** (or original upstream license). See the [LICENSE](LICENSE) file for complete terms.
+- **License:** **MIT**, conservada sin modificar del proyecto original de poma123. See the [LICENSE](LICENSE) file and [UPSTREAM.md](UPSTREAM.md).
