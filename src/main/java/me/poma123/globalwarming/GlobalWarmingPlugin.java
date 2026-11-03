@@ -328,7 +328,7 @@ public class GlobalWarmingPlugin extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public String getBugTrackerURL() {
-        return "https://github.com/DrakesCraft-Labs/GlobalWarming/issues";
+        return "https://github.com/SlimefunNewHorizons/GlobalWarming/issues";
     }
 
     @Override
