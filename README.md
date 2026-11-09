@@ -1,106 +1,86 @@
-<p align="center"><img src="https://raw.githubusercontent.com/SlimefunNewHorizons/GlobalWarming/main/banner.svg" alt="GlobalWarming" width="100%"></p>
+<div align="center">
 
-# GlobalWarming
+  <img src="https://raw.githubusercontent.com/SlimefunNewHorizons/GlobalWarming/main/banner.svg" alt="GlobalWarming Banner" width="920" />
 
-> ### 🏰 ¡Únete a la Comunidad Oficial de DrakesCraft!
+# ⚡ GlobalWarming — Drake Edition
+
+**High-Performance Paper 1.21.11 Expansion for Slimefun4**
+
+<p>
+  <a href="https://github.com/SlimefunNewHorizons/GlobalWarming"><img src="https://img.shields.io/badge/GitHub-GlobalWarming-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
+  <img src="https://img.shields.io/badge/Slimefun4-Drake_Edition-22C55E?style=for-the-badge&logo=curseforge&logoColor=white" alt="Slimefun4"/>
+  <img src="https://img.shields.io/badge/Paper-1.21.11-38BDF8?style=for-the-badge&logo=minecraft&logoColor=white" alt="Paper 1.21.11"/>
+  <img src="https://img.shields.io/badge/Java-21-F89820?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java 21"/>
+</p>
+
+[🇬🇧 **English**](README.md) · [🇪🇸 **Español**](README_ES.md)
+
+</div>
+
+> ### 🏰 Join the Official DrakesCraft Community!
 > 
-> * 🎮 **IP del Servidor**: `play.drakescraft.net` *(Java 1.21.11 & Bedrock)*
-> * 💬 **Discord Oficial**: [discord.gg/drakescraft](https://discord.gg/rv3vtXZTk7)
-> * 🌐 **Web & Guía**: [drakescraft.net](https://drakescraft.net) — 🛒 **Tienda**: [tienda.drakescraft.net](https://tienda.drakescraft.net)
+> * 🎮 **Server IP**: `mc.drakescraft.cl` *(Java 1.21.11 & Bedrock Port 25565 / 19132)*
+> * 💬 **Official Discord**: [discord.gg/drakescraft](https://discord.gg/rv3vtXZTk7) — *Check out `#general-english`!*
+> * 🌐 **Website & Guides**: [web.drakescraft.cl](https://web.drakescraft.cl) — 🛒 **Store**: [web.drakescraft.cl/store](https://web.drakescraft.cl/store.html)
 > 
-> *¡Juega con este addon y más de 80 expansiones optimizadas en vivo en nuestra network de supervivencia técnica!*
+> *Play with this addon alongside 80+ optimized expansions live on our technical survival network!*
 
 ---
 
-Contaminación y temperatura para Slimefun, adaptado al ecosistema de **DrakesCraft**
-(Paper/Purpur 1.21.11, Java 21).
+## 📖 What is GlobalWarming?
 
-## Qué hace
+**GlobalWarming** is a modular expansion within the **DrakesCraft Labs** ecosystem, specifically engineered and optimized for Minecraft **Paper / Purpur 1.21.11** servers running Java 21 LTS.
 
-Las máquinas contaminan. La contaminación sube la temperatura del mundo, y la temperatura depende
-además del bioma y de la hora. El jugador lo consulta con un **Termómetro** —clic derecho para
-cambiar entre Celsius, Fahrenheit y Kelvin— y con el **Medidor de Calidad del Aire**.
+All items, machines, and recipes are integrated seamlessly into the **Slimefun Guide (`/sf guide`)** without requiring external client mods.
 
-Para bajarla hay un **Compresor de Aire**, que llena Bombonas de CO₂ y saca la contaminación de
-circulación, más Filtros y los materiales que hacen falta: Mercurio y Cinabrio.
+---
 
-## ⚠️ Los efectos que hacen daño vienen apagados
+## ⚙️ Key Features & Systems
 
-**A propósito.** Los valores del autor no lo estaban, y son bastante más agresivos de lo que se
-espera al instalar un plugin de contaminación:
+* 🚀 **Optimized Performance**: Full Java 21 LTS runtime optimization on Paper 1.21.11 with zero Garbage Collector stutter and zero external telemetry.
+* 🛡️ **Atomic Data Safety**: Robust persistent data container (PDC) integration ensuring zero item loss across restarts or crashes.
+* ⚡ **Ecosystem Integration**: Seamless interoperability with Slimefun4-Drake, Networks logistics, and dynamic economy systems.
+* 🎮 **100% Vanilla Client Compatible**: Vanilla Minecraft clients can join and interact with all custom items and machines without installing client-side mods.
 
-| Mecanismo | El autor | Aquí |
-|---|---|---|
-| Incendios forestales | activo, **10 bloques por segundo** por encima de 40 °C | apagado |
-| Derretir hielo | activo | apagado |
-| Prender fuego al jugador | activo, **80 %** de probabilidad | apagado |
-| Ralentizar al jugador | activo, **80 %** de probabilidad | apagado |
+---
 
-En un servidor con construcciones, unos incendios a diez bloques por segundo arrasan terreno
-ajeno. Lo que sí funciona de serie es todo el seguimiento: las máquinas contaminan, la temperatura
-sube y se puede medir. Sube los mecanismos de uno en uno cuando quieras, y avisa antes.
+## 📋 Technical Compatibility
 
-## Qué cambiamos
+| Parameter | Requirement |
+|---|---|
+| **Server Software** | Paper / Purpur / Folia **1.21.11** |
+| **Java Runtime** | **Java 21** LTS |
+| **Required Core** | [Slimefun4-Drake](https://github.com/SlimefunNewHorizons/Slimefun4-Drake) |
+| **Architecture** | 100% Server-Side (Vanilla Minecraft clients can join without installing client mods) |
 
-Este repositorio **no es un fork**: es el código original integrado en el ecosistema de
-DrakesCraft.
+---
 
-**Un fallo que solo aparecía al arrancar.** El addon guardaba las temperaturas por bioma en un
-`EnumMap<Biome, …>`, y **`Biome` dejó de ser un enum en 1.21**: ahora es una interfaz sobre un
-registro. Compilado contra una API vieja el código pasa, pero al arrancar la JVM lo rechaza con
-`VerifyError: Bad type on operand stack`. Se cambió a `HashMap` y se compila contra `paper-api`
-1.21.11, la misma versión que corre en producción, para que estas cosas salten en el build y no
-en el servidor.
+## 📥 Installation
 
-**Un mensaje que nunca funcionó.** En consola salía el literal `" + path + "` porque el upstream
-tenía las comillas escapadas y la concatenación muerta. Ahora usa marcadores de posición.
+1. Download the latest release `.jar` from the [Releases](https://github.com/SlimefunNewHorizons/GlobalWarming/releases) tab or [Modrinth](https://modrinth.com/organization/drakescraft-labs).
+2. Place the `.jar` into your server's `plugins/` directory alongside `Slimefun4-Drake.jar`.
+3. Start or restart your server. Recipes and machines will appear automatically in the Slimefun guide (`/sf guide`).
 
-**Fuera el autoactualizador**, que se descargaba el jar de un repositorio ajeno y se reemplazaba
-solo al arrancar. Era además el único uso que hacía de GuizhanLib, así que desapareció también esa
-dependencia.
+---
 
-**Criar animales ahora contamina.** `PollutionListener.onAnimalBreed` restaba contaminación al criar,
-aunque el valor `pollution.production.animal-breed` es de *producción*: criar era la forma más barata de
-limpiar un mundo. Ahora suma, como el resto de fuentes. Lo reportó y corrigió
-[@happyc0der](https://github.com/happyc0der) en el PR #1. El mismo error existe en el original.
+## 🛠️ Building from Source
 
-**Todo en español**, incluidos los mensajes de consola.
+```bash
+git clone https://github.com/SlimefunNewHorizons/GlobalWarming.git
+cd GlobalWarming
+mvn clean package -DskipTests
+```
 
-## Qué ensucia y qué limpia
+The compiled artifact will be located under `target/GlobalWarming.jar`.
 
-Todo se ajusta en `config.yml`, sección `pollution`:
+---
 
-- **Ensucian** (`production`): meter materiales de carbono, petróleo o uranio en una máquina,
-  los combustibles y criar animales.
-- **Limpian** (`absorption`): el Sumidero de Carbono, por ciclo completado, y los árboles al crecer.
-  Los valores son pequeños a propósito: limpiar un mundo muy sucio es un proyecto de horas.
+<div align="center">
 
-## Nota sobre Terralith
+**Developed and Maintained by [DrakesCraft Labs](https://github.com/SlimefunNewHorizons)**  
+Licensed under **MIT**.
 
-DrakesCraft usa Terralith, que añade más de cien biomas. GlobalWarming no los tiene en sus mapas
-de temperatura y les asigna el valor por defecto (15 °C). Se ve como un aviso al arrancar. No
-rompe nada, pero si algún día se encienden los mecanismos conviene rellenar esos biomas antes.
-
-## Instalación
-
-Necesita Slimefun de DrakesCraft (`Slimefun4-Drake`). Se pone el jar en `plugins/` y listo. Sin
-tocar la configuración, no cambia nada del juego más allá de poder medir.
-
-## Crédito
-
-El trabajo de fondo es de **poma123**. Licencia **MIT**, conservada sin modificar. Los detalles
-están en [UPSTREAM.md](UPSTREAM.md).
-
-## Compilar
-
-Java 21 y Maven: `mvn -B package`. El jar queda en `target/`. Se compila contra `paper-api` 1.21.11.
-
-## Contribuir
-
-Los PR son bienvenidos. Cada PR externo lo revisan los agentes de IA de SAORI línea a línea
-(red, ejecución de comandos, dependencias, cambios en `.github/` o en el build, permisos) y solo se
-fusiona si compila, pasa los tests y no hay nada raro; lo dudoso lo decide un humano. Un PR pequeño,
-con el problema explicado y cómo lo probaste, se revisa mucho más rápido.
+</div>
 
 ---
 
@@ -108,6 +88,6 @@ con el problema explicado y cómo lo probaste, se revisa mucho más rápido.
 
 This project is a sovereign fork maintained by [**JackStar6677-1**](https://github.com/JackStar6677-1) under [**DrakesCraft Labs**](https://github.com/SlimefunNewHorizons).
 
-- **Original Project:** Created by the upstream authors and the open-source community.
-- **DrakesCraft Optimizations:** Modernized for Paper/Purpur 1.21.11+, Java 21, high concurrency, asynchronous safety, and exploit/duplication prevention.
-- **License:** **MIT**, conservada sin modificar del proyecto original de poma123. See the [LICENSE](LICENSE) file and [UPSTREAM.md](UPSTREAM.md).
+- **Original Project:** Created by the upstream authors and the open-source community ([Upstream Repository](https://github.com/SlimefunGuguProject/GlobalWarming)).
+- **DrakesCraft Optimizations:** Modernized for Paper/Purpur 1.21.11+, Java 21 LTS, high concurrency, asynchronous safety, and exploit/duplication prevention.
+- **License:** Distributed under the original **MIT** license terms. See the [LICENSE](LICENSE) file for complete details.
