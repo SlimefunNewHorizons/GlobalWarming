@@ -6,7 +6,7 @@ This repository is part of the [SlimefunNewHorizons](https://github.com/Slimefun
 
 | Author | Commits here | Source |
 |---|---|---|
-| [JackStar6677](https://github.com/JackStar6677) | 6 | GitHub contributors / project history |
+
 | [happyc0der](https://github.com/happyc0der) | 1 | GitHub contributors / project history |
 | poma123 | n/a | `authors` in plugin.yml |
 
